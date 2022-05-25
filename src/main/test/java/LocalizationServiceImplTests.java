@@ -6,7 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 
 public class LocalizationServiceImplTests {
-    static LocalizationServiceImpl sut;
+    static LocalizationServiceImpl sut = new LocalizationServiceImpl();
 
     @BeforeAll
     public static void init() {
@@ -25,21 +25,21 @@ public class LocalizationServiceImplTests {
     }
 
     @Test
-    public void test_locale_Russia() {
+    public void testLocaleRussia() {
         String expected = "Добро пожаловать";
         String result = sut.locale(Country.RUSSIA);
         Assertions.assertEquals(expected, result);
     }
 
     @Test
-    public void test_locale_USA() {
+    public void testLocaleUSA() {
         String expected = "Welcome";
         String result = sut.locale(Country.USA);
         Assertions.assertEquals(expected, result);
     }
 
     @Test
-    public void test_locale_NotEquals() {
+    public void testLocaleNotEquals() {
         String expected = "Welcome";
         String result = sut.locale(Country.RUSSIA);
         assertThat(result, not(expected));

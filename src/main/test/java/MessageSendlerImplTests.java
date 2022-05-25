@@ -47,7 +47,7 @@ public class MessageSendlerImplTests {
 
     @ParameterizedTest
     @CsvFileSource(resources = ("source.csv"))
-    public void test_IpTextLocalizationRu(String ip, String msg) {
+    public void testIpTextLocalizationRu(String ip, String msg) {
         Map<String, String> headers = new HashMap<>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, ip);
         String result = sut.send(headers);
