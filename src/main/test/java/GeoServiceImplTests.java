@@ -9,7 +9,6 @@ public class GeoServiceImplTests {
     @BeforeAll
     public static void init() {
         System.out.println("Starting tests");
-        sut = new GeoServiceImpl();
     }
 
     @AfterEach
@@ -18,7 +17,7 @@ public class GeoServiceImplTests {
     }
 
     @AfterAll
-    public static void afterAll(){
+    public static void afterAll() {
         System.out.println("All tests completed");
     }
 

@@ -11,7 +11,6 @@ public class LocalizationServiceImplTests {
     @BeforeAll
     public static void init() {
         System.out.println("Starting tests");
-        sut = new LocalizationServiceImpl();
     }
 
     @AfterEach
