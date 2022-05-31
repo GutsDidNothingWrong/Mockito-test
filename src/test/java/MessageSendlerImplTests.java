@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MessageSendlerImplTests {
-    static MessageSenderImpl sut;
+    static MessageSenderImpl messageSenderTest;
 
     @BeforeAll
     public static void init() {
@@ -32,7 +32,7 @@ public class MessageSendlerImplTests {
         Mockito.when(localizationService.locale(Country.USA))
                 .thenReturn("Welcome");
 
-        sut = new MessageSenderImpl(geoService, localizationService);
+        messageSenderTest = new MessageSenderImpl(geoService, localizationService);
     }
 
     @AfterEach
@@ -50,7 +50,7 @@ public class MessageSendlerImplTests {
     public void testIpTextLocalizationRu(String ip, String msg) {
         Map<String, String> headers = new HashMap<>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, ip);
-        String result = sut.send(headers);
+        String result = messageSenderTest.send(headers);
         String expected = msg;
 
         Assertions.assertEquals(expected, result);

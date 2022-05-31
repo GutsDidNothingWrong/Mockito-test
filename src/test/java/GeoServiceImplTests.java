@@ -4,7 +4,7 @@ import ru.netology.entity.Location;
 import ru.netology.geo.GeoServiceImpl;
 
 public class GeoServiceImplTests {
-    static GeoServiceImpl sut = new GeoServiceImpl();
+    static GeoServiceImpl geoServiceTest = new GeoServiceImpl();
 
     @BeforeAll
     public static void init() {
@@ -24,7 +24,7 @@ public class GeoServiceImplTests {
     @Test
     public void testByIpIsInstanceLocationClass() {
         String ip = "172.0.0.1";
-        Location result = sut.byIp(ip);
+        Location result = geoServiceTest.byIp(ip);
         Assertions.assertInstanceOf(Location.class, result);
     }
 
@@ -32,7 +32,7 @@ public class GeoServiceImplTests {
     public void testByIpRussia() {
         String ip = "172.0.0.1";
         Country expected = Country.RUSSIA;
-        Country result = sut.byIp(ip).getCountry();
+        Country result = geoServiceTest.byIp(ip).getCountry();
         Assertions.assertEquals(expected, result);
     }
 
@@ -40,7 +40,7 @@ public class GeoServiceImplTests {
     public void testByIpUSA() {
         String ip = "96.0.0.1";
         Country expected = Country.USA;
-        Country result = sut.byIp(ip).getCountry();
+        Country result = geoServiceTest.byIp(ip).getCountry();
         Assertions.assertEquals(expected, result);
     }
 
